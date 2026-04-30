@@ -23,15 +23,14 @@ export default defineConfig({
     port: 5174,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://upi-payment-d7ys.onrender.com',
         changeOrigin: true,
         secure: false,
         configure: (proxy) => {
           proxy.on('error', (err, req, res) => {
             if (err.code === 'ECONNREFUSED' || err.code === 'ECONNRESET') {
               // Backend not running, return helpful error
-              console.error('❌ Backend server not running on http://localhost:3000')
-              console.error('   Please start the backend first: cd backend && npm run dev')
+              console.error('❌ Backend server not running on https://upi-payment-d7ys.onrender.com')
               console.error('   Or use the startup script: start-dev.bat\n')
               res.writeHead(503, { 'Content-Type': 'application/json' })
               res.end(JSON.stringify({
@@ -43,7 +42,7 @@ export default defineConfig({
         },
       },
       '/socket.io': {
-        target: 'http://localhost:3000',
+        target: 'https://upi-payment-d7ys.onrender.com',
         ws: true,
         changeOrigin: true,
         configure: (proxy) => {
