@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Widget Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f9fafb;
+    }
+    h1 {
+      color: #111827;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 40px;
+    }
+    .demo-section {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+    }
+    .demo-section h2 {
+      margin-top: 0;
+      color: #374151;
+      font-size: 18px;
+    }
+    .info-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .info-box code {
+      background: #dbeafe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .event-log {
+      background: #f3f4f6;
+      border-radius: 8px;
+      padding: 16px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    .event-log-item {
+      padding: 4px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .event-log-item:last-child {
+      border-bottom: none;
+    }
+    .event-success { color: #16a34a; }
+    .event-error { color: #dc2626; }
+    .event-info { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <h1>🚀 Checkout Widget Demo</h1>
+  <p class="subtitle">Embeddable Payment Checkout System</p>
+  
+  <!-- Demo 1: Basic Checkout -->
+  <div class="demo-section">
+    <h2>📦 Demo 1: Basic Payment Widget</h2>
+    <p>Click the button below to open the checkout widget:</p>
+    
+    <div id="checkout-widget"></div>
+    
+    <div class="info-box">
+      <strong>Configuration:</strong><br>
+      Amount: <code>₹499</code> | 
+      Product: <code>Premium Plan</code> | 
+      Gateway: <code>Razorpay</code>
+    </div>
+  </div>
+  
+  <!-- Demo 2: Event Handling -->
+  <div class="demo-section">
+    <h2>📊 Demo 2: Event Handling</h2>
+    <p>Real-time event log:</p>
+    <div class="event-log" id="event-log">
+      <div class="event-log-item event-info">Waiting for events...</div>
+    </div>
+  </div>
+  
+  <!-- Code Example -->
+  <div class="demo-section">
+    <h2>💻 Integration Code</h2>
+    <pre><code>&lt;!-- 1. Include SDK --&gt;
+&lt;script src="https://cdn.yourdomain.com/checkout.js"&gt;&lt;/script&gt;
+
+&lt;!-- 2. Add container --&gt;
+&lt;div id="checkout-widget"&gt;&lt;/div&gt;
+
+&lt;!-- 3. Initialize --&gt;
+&lt;script&gt;
+  Checkout.init({
+    publicKey: 'pk_test_xxx',
+    amount: 499,
+    currency: 'INR',
+    productName: 'Premium Plan',
+    gateway: 'razorpay',
+    methods: ['upi', 'card', 'wallet'],
+    customer: {
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '9876543210'
+    },
+    // Event handlers
+    onPaymentSuccess: (data) => console.log('Success:', data),
+    onPaymentFailed: (error) => console.error('Failed:', error)
+  });
+&lt;/script&gt;</code></pre>
+  </div>
+  
+  <!-- SDK Script -->
+  <script src="../dist/checkout.js"></script>
+  
+  <!-- Initialize Demo -->
+  <script>
+    // Event logging
+    function logEvent(type, message) {
+      const log = document.getElementById('event-log');
+      const item = document.createElement('div');
+      item.className = `event-log-item event-${type}`;
+      item.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      log.insertBefore(item, log.firstChild);
+      
+      // Keep only last 20 events
+      while (log.children.length > 20) {
+        log.removeChild(log.lastChild);
+      }
+    }
+    
+    // Initialize checkout widget
+    Checkout.init({
+      publicKey: 'pk_test_demo123',
+      amount: 499,
+      currency: 'INR',
+      productName: 'Premium Plan',
+      productDescription: 'Monthly subscription with all features',
+      gateway: 'razorpay',
+      methods: ['upi', 'card', 'wallet'],
+      theme: 'light',
+      customer: {
+        name: 'Demo User',
+        email: 'demo@example.com',
+        phone: '9876543210'
+      },
+      metadata: {
+        demo: true,
+        source: 'demo-page'
+      }
+    });
+    
+    // Event handlers
+    Checkout.on('opened', () => logEvent('info', 'Checkout opened'));
+    Checkout.on('closed', () => logEvent('info', 'Checkout closed'));
+    Checkout.on('payment:initiated', (data) => logEvent('info', `Payment initiated: ${data.method}`));
+    Checkout.on('payment:received', (data) => logEvent('info', `Payment received: ${data.razorpay_payment_id}`));
+    Checkout.on('payment:success', (data) => logEvent('success', `Payment successful: ${data.transactionId}`));
+    Checkout.on('payment:failed', (data) => logEvent('error', `Payment failed: ${data.error}`));
+    Checkout.on('payment:cancelled', () => logEvent('info', 'Payment cancelled'));
+  </script>
+</body>
+</html>
