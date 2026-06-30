@@ -1,0 +1,19 @@
+2026-04-02 11:22:56 [INFO] 🤖 AI Service running in MOCK mode
+
+🚀 Backend server running on http://localhost:3000
+📡 Socket.IO ready for real-time updates
+🌐 Frontend URL: http://localhost:5174
+
+2026-04-02 11:22:56 [INFO] MongoDB indexes created successfully
+✅ MongoDB connected
+2026-04-02 11:22:56 [INFO] MongoDB indexes created successfully
+[TransactionModel.findAll] Query: { status: 'pending' } Page: 1 Limit: 20
+[TransactionModel.findAll] Found 0 items
+[TransactionModel.findAll] Query: { status: 'pending' } Page: 1 Limit: 20
+[TransactionModel.findAll] Found 0 items
+[TransactionModel.findAll] Query: { status: 'pending' } Page: 1 Limit: 20
+[TransactionModel.findAll] Found 0 items
+[TransactionModel.findAll] Query: { status: 'pending' } Page: 1 Limit: 20
+[TransactionModel.findAll] Found 0 items
+[TransactionModel.findAll] Query: { status: 'pending' } Page: 1 Limit: 20
+[TransactionModel.findAll] Found 0 items

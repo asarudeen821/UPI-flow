@@ -1,0 +1,26 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m577[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5174[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m11:26:11 am[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/links[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m11:32:48 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ErrorBoundary.jsx, /@fs/D:/payment/frontend/src/index.css[22m
+[2m11:54:20 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/AIChatWidget.jsx, /@fs/D:/payment/frontend/src/index.css[22m
+[2m11:56:31 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/index.css, /src/lib/AuthContext.jsx, /src/lib/RecipientsContext.jsx[22m
+[2m12:07:23 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/index.css, /src/lib/AuthContext.jsx, /src/lib/RecipientsContext.jsx[22m
+[2m12:19:05 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/App.jsx, /@fs/D:/payment/frontend/src/index.css[22m
+[2m12:19:18 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/App.jsx, /@fs/D:/payment/frontend/src/index.css[22m
+[2m12:19:52 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/index.css, /src/lib/AuthContext.jsx, /src/lib/RecipientsContext.jsx[22m
+[2m12:20:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/index.css, /src/lib/AuthContext.jsx, /src/lib/RecipientsContext.jsx[22m
+[2m12:20:20 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/@fs/D:/payment/frontend/src/index.css, /src/lib/AuthContext.jsx, /src/lib/RecipientsContext.jsx[22m
+[2m12:23:14 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Layout.jsx, /@fs/D:/payment/frontend/src/index.css[22m
+[2m12:25:42 pm[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+Re-optimizing dependencies because vite config has changed
+[2m12:25:43 pm[22m [36m[1m[vite][22m[39m server restarted.
