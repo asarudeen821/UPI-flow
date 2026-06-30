@@ -1,7 +1,6 @@
 import { FraudService } from './services/fraudService.js'
 import { GatewayService, GATEWAYS } from './services/gatewayService.js'
 import { AnalyticsService as LocalAnalyticsService } from './services/analyticsService.js'
-import { buildUPIString, getQRImageUrl } from './services/qrService.js'
 import { FREQUENCIES } from './services/subscriptionService.js'
 import { WebhookService as _WebhookService } from './services/webhookService.js'
 
@@ -723,7 +722,7 @@ export const AnalyticsService = {
   },
 }
 
-export { buildUPIString, getQRImageUrl, FraudService, FREQUENCIES, _WebhookService as WebhookService, GatewayService, GATEWAYS }
+export { FraudService, FREQUENCIES, _WebhookService as WebhookService, GatewayService, GATEWAYS }
 
 export default {
   PaymentBackend,

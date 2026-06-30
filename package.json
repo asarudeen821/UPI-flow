@@ -4,13 +4,14 @@
   "description": "Real-time Payment Application",
   "scripts": {
     "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "build": "npm --prefix frontend run build",
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "build": "npm --prefix frontend run build",
     "start": "npm --prefix backend start",
     "start:backend": "npm --prefix backend start",
-    "start:frontend": "npm --prefix frontend preview"
+    "start:frontend": "npm --prefix frontend preview",
+    "dev:both": "npm run dev"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
@@ -23,5 +24,8 @@
     "express"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4"
+  }
 }

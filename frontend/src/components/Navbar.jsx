@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { LogOut, User, Menu, X, LayoutDashboard, ArrowUpRight, History, QrCode, Link2, Repeat, Code2, CreditCard, Home, Wand2 } from 'lucide-react'
+import { LogOut, User, Menu, X, LayoutDashboard, ArrowUpRight, History, QrCode, Link2, Repeat, Code2, CreditCard, Home, Wand2, ShoppingBag } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/lib/useAuth'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', icon: Home, isImage: true, imageSrc: '/upiflow-logo.png' },
+  { to: '/products', label: 'Shop', icon: ShoppingBag },
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/create-payment', label: 'Collect', icon: CreditCard },
   { to: '/payment', label: 'Pay', icon: ArrowUpRight },

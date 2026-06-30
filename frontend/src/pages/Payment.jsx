@@ -45,16 +45,20 @@ export default function Payment() {
     const mobile = searchParams.get('mobile_number')
     const name = searchParams.get('name')
     const recipientIdParam = searchParams.get('recipientId')
+    const amount = searchParams.get('amount')
+    const note = searchParams.get('note')
 
     if (modeParam && MODES.find((item) => item.value === modeParam)) {
       setMode(modeParam)
     }
 
-    if (upiId || mobile || name) {
+    if (upiId || mobile || name || amount || note) {
       setPrefilledData({
         upi_id: upiId,
         mobile_number: mobile,
         recipient_name: name,
+        amount: amount,
+        note: note,
       })
     }
 

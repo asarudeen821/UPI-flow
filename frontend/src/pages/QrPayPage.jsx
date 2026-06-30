@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { QRService, TransactionAPI, WebhookService, buildUPIString } from '@/api/backend.js'
+import { QRService, TransactionAPI, WebhookService } from '@/api/backend.js'
+import { buildUPIString } from '@/api/services/qrService.js'
 import { usePaymentSound } from '@/hooks/usePaymentSound'
 
 export default function QrPayPage() {

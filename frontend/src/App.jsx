@@ -13,6 +13,7 @@ import { RecipientsProvider } from '@/lib/RecipientsContext'
 import { queryClient } from '@/lib/query-client'
 
 const Home = lazy(() => import('@/pages/Home'))
+const Products = lazy(() => import('@/pages/Products'))
 const Dashboard = lazy(() => import('@/pages/Dashboard'))
 const CreatePayment = lazy(() => import('@/pages/CreatePayment'))
 const Payment = lazy(() => import('@/pages/Payment'))
@@ -46,6 +47,7 @@ export default function App() {
                   <Route path="/qr/:ref" element={<QrPayPage />} />
                   <Route element={<Layout />}>
                     <Route path="/" element={<Home />} />
+                    <Route path="/products" element={<Products />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/create-payment" element={<CreatePayment />} />
                     <Route path="/payment" element={<Payment />} />

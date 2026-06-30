@@ -1,205 +1,198 @@
 # =============================================================================
 # UPI Flow Payment - Root .gitignore
-# Comprehensive gitignore for the entire monorepo project
+# Monorepo-focused .gitignore for Node.js/JS projects.
+# Excludes: dependencies, build artifacts, env/secrets, caches, logs,
+# IDE/editor files, OS-specific files, and local DB/test artifacts.
 # =============================================================================
 
 # =============================================================================
-# NODE.JS & NPM
+# NODE.JS & PACKAGE MANAGERS
 # =============================================================================
+
 # Dependencies
 node_modules/
+node_modules.old/
+*.old/
+
+# Package manager caches/stores
+.npm/
+.npm-cache/
 npm-cache/
-.pnp
-.pnp.js
+.yarn/
+.yarn/cache/
+.pnpm-store/
+.pnpm-debug.log*
 
-# Package lock files (optional - uncomment if you want to ignore)
-# package-lock.json
-# backend/package-lock.json
-# frontend/package-lock.json
-# checkout-widget/backend/package-lock.json
-
-# npm log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# TypeScript / tooling
+*.tsbuildinfo
 
 # =============================================================================
-# ENVIRONMENT VARIABLES
+# ENVIRONMENT VARIABLES / SECRETS (MOST IMPORTANT)
 # =============================================================================
-# Never commit actual environment variables
+
+# Never commit real environment files.
 .env
+.env.*
+
+# Common local env variants.
 .env.local
-.env.*.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Environment examples (keep .env.example for reference)
-#backend/.env.local (keep .env.example only)
+# Explicitly cover any other local/secret env suffixes.
+.env.*.local
+
+# Optional: keep example files tracked.
+# !.env.example
+# !.env.*.example
+
+# =============================================================================
+# CREDENTIALS / PRIVATE KEYS / TOKENS (DEFENSIVE)
+# =============================================================================
+
+# Generic key material.
+*.key
+*.pem
+*.crt
+*.cer
+*.pfx
+
+# Common credential/secret filenames (covers accidental commits).
+API_KEY*
+SECRET*
+JWT*
+TOKEN*
+PRIVATE_KEY*
+RAZORPAY*
+
+# JSON credential files (common in local dev).
+credentials*.json
 
 # =============================================================================
 # BUILD OUTPUTS & COMPILATION
 # =============================================================================
-# Vite/React build outputs
+
+# General
 dist/
-dist-ssr/
 build/
-*.local
 
-# Parcel cache
-.parcel-cache/
+# Vite
+.vite/
 
-# TypeScript build info
-*.tsbuildinfo
-
-# Next.js (if used)
+# Next.js (if used anywhere in the monorepo)
 .next/
 out/
+
+# Nuxt (if used anywhere in the monorepo)
+.nuxt/
+.nuxt/
+.output/
+
+# Parcel
+.parcel-cache/
+
+# Compiled/local bundles
+*.local
 
 # =============================================================================
 # LOGS & TEMPORARY FILES
 # =============================================================================
-# Log files
+
 logs/
 *.log
-server_output.log
 
-# Temporary/runtime directories
+# Runtime/temp folders
 temp/
 tmp/
+
+# Uploads/data folders (commonly contain local artifacts)
 uploads/
 data/
 
-# Cache directories
+# Caches
 .cache/
-
-# =============================================================================
-# EDITOR & IDE
-# =============================================================================
-# VS Code
-.vscode/*
-!.vscode/extensions.json
-.vscode/
-
-# IntelliJ / WebStorm
-.idea/
-*.iml
-*.iws
-out/
-
-# Atom
-.bin/
-.symbols
-
-# Sublime Text
-*.tmlanguage.cache
-*.tmPreferences.cache
-
-# Emacs
-*~/
-\#*
-.\#*
-
-# Vim
-*.swp
-*.swo
-*~
-.Session.vim
-.netrwhist
-
-# Kate
-.*.kate
-
-# =============================================================================
-# OPERATING SYSTEM FILES
-# =============================================================================
-# Windows
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-.DS_Store
-Desktop.ini
-$RECYCLE.BIN/
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-.DocumentRevisions-V100
-.fseventsd
-.TemporaryItems
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Linux
-.*.un~
-Trash-*
-
-# =============================================================================
-# DATABASE & STATE FILES
-# =============================================================================
-# SQLite
-*.db
-*.sqlite
-*.sqlite3
-
-# MongoDB data (local)
-# (if using local MongoDB data directory)
-# data/mongodb/
-# *.mongodata
 
 # =============================================================================
 # TESTING & COVERAGE
 # =============================================================================
+
 coverage/
 *.lcov
 .nyc_output/
 
-# Jest
-coverage/
-*.test.js
+# =============================================================================
+# DATABASE & LOCAL STATE ARTIFACTS
+# =============================================================================
 
-# Mocha
-mochawesome-report/
-mochawesome-results/
+# SQLite / local DB
+*.db
+*.sqlite
+*.sqlite3
+
+# Local dumps / backups / exports
+*.dump
+*.dmp
+*.backup
+*.bak
 
 # =============================================================================
-# AI / LLM WORKING FILES
+# EDITOR / IDE / WORKSPACE FILES
 # =============================================================================
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# IntelliJ/WebStorm
+.idea/
+*.iml
+*.iws
+
+# Visual Studio
+*.sln
+*.suo
+*.ntvs*
+*.njsproj
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Vim/Emacs swap files
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# OS-SPECIFIC FILES
+# =============================================================================
+
+Thumbs.db
+Thumbs.db:encryptable
+.DS_Store
+.DS_Store?
+Desktop.ini
+$RECYCLE.BIN/
+
+# =============================================================================
+# AI / LLM WORKING DIRS (IF PRESENT)
+# =============================================================================
+
 .qwen/
 .ai/
 .cursor/
 *.ai-context*
 
 # =============================================================================
-# WINDOWS BATCH SCRIPTS (Optional - keep if needed)
+# DOCKER / OTHER
 # =============================================================================
-# Uncomment if you don't want to track Windows scripts
-# *.bat
-# *.cmd
 
-# =============================================================================
-# MISCELLANEOUS
-# =============================================================================
-# PDF generated files
-*.pdf
-
-# Credentials file (if exists)
-credentials.json
-
-# Docker
 .docker/
 
 # =============================================================================
-# SUBMODULES (if using git submodules)
+# SUBMODULES
 # =============================================================================
+
 .gitmodules
 
-# =============================================================================
-# SKIP WORKING TREE UPDATES
-# =============================================================================
-# Uncomment if you have long-running operations and want to skip
-# skip-worktree.txt

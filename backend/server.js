@@ -165,6 +165,14 @@ async function initializeMongoData() {
         category: 'friends',
         last_amount: 500,
       });
+      await RecipientModel.create({
+        name: 'Fresh Chicken Co.',
+        payment_method: 'upi_id',
+        upi_id: 'chickenstore@upi',
+        nickname: 'Chicken Store',
+        category: 'business',
+        last_amount: 349,
+      });
       console.log('✅ Initial recipients seeded');
     }
   } catch (error) {

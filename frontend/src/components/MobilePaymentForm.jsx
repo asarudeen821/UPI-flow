@@ -9,8 +9,8 @@ import { AlertCircle, Info, Smartphone } from 'lucide-react'
 export default function MobilePaymentForm({ onSubmit, loading, prefilledData }) {
   const [mobileNumber, setMobileNumber] = useState(prefilledData?.mobile_number || '')
   const [recipientName, setRecipientName] = useState(prefilledData?.recipient_name || '')
-  const [amount, setAmount] = useState('')
-  const [note, setNote] = useState('')
+  const [amount, setAmount] = useState(prefilledData?.amount || '')
+  const [note, setNote] = useState(prefilledData?.note || '')
   const [showSummary, setShowSummary] = useState(false)
   const [errors, setErrors] = useState([])
 

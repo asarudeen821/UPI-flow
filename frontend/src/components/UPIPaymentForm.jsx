@@ -10,8 +10,8 @@ import { AlertCircle, Info } from 'lucide-react'
 export default function UPIPaymentForm({ onSubmit, loading, prefilledData }) {
   const [upiId, setUpiId] = useState(prefilledData?.upi_id || '')
   const [recipientName, setRecipientName] = useState(prefilledData?.recipient_name || '')
-  const [amount, setAmount] = useState('')
-  const [note, setNote] = useState('')
+  const [amount, setAmount] = useState(prefilledData?.amount || '')
+  const [note, setNote] = useState(prefilledData?.note || '')
   const [upiApp, setUpiApp] = useState(prefilledData?.upi_app || '')
   const [showSummary, setShowSummary] = useState(false)
   const [errors, setErrors] = useState([])

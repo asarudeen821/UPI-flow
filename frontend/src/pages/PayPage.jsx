@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { PaymentLinkService, TransactionAPI, WebhookService, buildUPIString } from '@/api/backend.js'
+import { PaymentLinkService, TransactionAPI, WebhookService } from '@/api/backend.js'
+import { buildUPIString } from '@/api/services/qrService.js'
 import { usePaymentSound } from '@/hooks/usePaymentSound'
 
 export default function PayPage() {
